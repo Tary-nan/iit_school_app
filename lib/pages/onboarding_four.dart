@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iit_school/pages/connection_page.dart';
 
 class OnboardingFour extends StatelessWidget {
-  const OnboardingFour({super.key});
+  const OnboardingFour({super.key, required this.controller});
+
+  final PageController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +40,32 @@ class OnboardingFour extends StatelessWidget {
                       side: const BorderSide(color: Colors.blue),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(7))),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.previousPage(
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeIn);
+                  },
                   child: const Text(
                     'Precedent',
                     style: TextStyle(color: Colors.blue),
                   )),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.blue,
                       side: const BorderSide(color: Colors.blue),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(7))),
-                  onPressed: () {},
-                  child: const Text(
-                    'Suivant',
-                    style: TextStyle(color: Colors.blue),
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ConnectionPage()));
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 200,
+                    child: const Text(
+                      'Se connecter',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   )),
             ],
           ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OnboardingThree extends StatelessWidget {
-  const OnboardingThree({super.key});
+  const OnboardingThree({super.key, required this.controller});
+  final PageController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,11 @@ class OnboardingThree extends StatelessWidget {
                       side: const BorderSide(color: Colors.blue),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(7))),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.previousPage(
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeIn);
+                  },
                   child: const Text(
                     'Precedent',
                     style: TextStyle(color: Colors.blue),
@@ -48,7 +53,11 @@ class OnboardingThree extends StatelessWidget {
                       side: const BorderSide(color: Colors.blue),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(7))),
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.nextPage(
+                        duration: const Duration(milliseconds: 250),
+                        curve: Curves.easeIn);
+                  },
                   child: const Text(
                     'Suivant',
                     style: TextStyle(color: Colors.blue),
