@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iit_school/pages/home_page.dart';
 
 class ConnectionPage extends StatelessWidget {
   const ConnectionPage({super.key});
@@ -19,7 +20,11 @@ class ConnectionPage extends StatelessWidget {
                       Expanded(
                           child: TextButton(
                         onPressed: () {
-                          print("Tap");
+
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+
+
                         },
                         child: const Text(
                           "S'inscrire ou se connecter avec",
