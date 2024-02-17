@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iit_school/pages/actualite_page.dart';
 import 'package:iit_school/pages/tchat_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,9 +14,7 @@ class _HomePageState extends State<HomePage> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     TchatPage(),
-    Text(
-      'Index 1: Actualite',
-    ),
+    ActualitePage(),
     Text(
       'Index 2: Parcours',
     ),
